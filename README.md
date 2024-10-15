@@ -27,15 +27,11 @@ Supported platforms
 - OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
-- SUSE Linux Enterprise 15<sup>1</sup>
-- openSUSE Leap 15
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
-- Fedora 39
-- Fedora 40
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -49,6 +45,9 @@ sysfs_packages:
 
 # Sysfs daemon
 sysfs_daemon: sysfsutils
+
+# Sysfs drop-in configurion files
+sysfs_dropin_files: []
 </pre></code>
 
 
@@ -60,6 +59,9 @@ sysfs_daemon: sysfsutils
 - name: sample playbook for role 'sysfs'
   hosts: all
   become: 'yes'
+  vars:
+    sysfs_dropin_files:
+      - scheduler
   tasks:
     - name: Include role 'sysfs'
       ansible.builtin.include_role:

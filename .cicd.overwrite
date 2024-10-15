@@ -9,7 +9,7 @@ generic:
   collections: []
 
 # Supported platforms
-#platforms:
+platforms:
 #  rhel7:
 #    ci: false
 #    supported: false
@@ -49,12 +49,12 @@ generic:
 #  almalinux9:
 #    ci: false
 #    supported: false
-#  sles15:
-#    ci: false
-#    supported: false
-#  opensuse15:
-#    ci: false
-#    supported: false
+  sles15:
+    ci: false
+    supported: false
+  opensuse15:
+    ci: false
+    supported: false
 #  opensusetumbleweed15:
 #    ci: false
 #    supported: false
@@ -85,12 +85,12 @@ generic:
 #  fedora38:
 #    ci: false
 #    supported: false
-#  fedora39:
-#    ci: false
-#    supported: false
-#  fedora40:
-#    ci: false
-#    supported: false
+  fedora39:
+    ci: false
+    supported: false
+  fedora40:
+    ci: false
+    supported: false
 #  alpine3:
 #    ci: false
 #    supported: false
@@ -111,3 +111,7 @@ generic:
 molecule:
   requirements:
     roles_extra: []
+  converge:
+    vars:
+      sysfs_dropin_files:
+      - scheduler

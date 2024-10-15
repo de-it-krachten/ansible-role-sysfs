@@ -6,3 +6,6 @@ sysfs_packages:
 
 # Sysfs daemon
 sysfs_daemon: sysfsutils
+
+# Sysfs drop-in configurion files
+sysfs_dropin_files: []

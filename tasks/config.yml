@@ -11,7 +11,7 @@
         owner: root
         group: root
         mode: "0755"
-    
+
     - name: Copy basic configuration file
       ansible.builtin.copy:
         src: sysfs.conf
@@ -19,7 +19,8 @@
         owner: root
         group: root
         mode: "0644"
-    
+      notify: Restart sysfs
+
     - name: Copy startup script
       ansible.builtin.copy:
         src: sysfsutils
@@ -27,7 +28,8 @@
         owner: root
         group: root
         mode: "0755"
-    
+      notify: Restart sysfs
+
     - name: Copy init functions
       ansible.builtin.copy:
         src: init-functions
@@ -35,7 +37,28 @@
         owner: root
         group: root
         mode: "0644"
-    
+      notify: Restart sysfs
+
+- name: Distribute drop-in files from files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /etc/sysfs.d/{{ item | basename }}
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart sysfs
+  loop: "{{ sysfs_dropin_files | default([]) }}"
+
+- name: Distribute drop-in files from template
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: /etc/sysfs.d/{{ item | basename | regex_replace('\.j2') }}
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart sysfs
+  loop: "{{ sysfs_dropin_templates | default([]) }}"
+
 - name: Start daemon
   ansible.builtin.service:
     name: "{{ sysfs_daemon }}"
