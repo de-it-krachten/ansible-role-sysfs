@@ -1,0 +1,7 @@
+---
+
+- name: Restart sysfsutils
+  ansible.builtin.service:
+    name: "{{ sysfs_daemon }}"
+    state: restarted
+

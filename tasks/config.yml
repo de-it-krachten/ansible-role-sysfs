@@ -1,0 +1,42 @@
+---
+
+- name: Setup autostart for RedHat only
+  when: ansible_os_family == 'RedHat'
+  block:
+
+    - name: Create configuration directory
+      ansible.builtin.file:
+        path: /etc/sysfs.d
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+    
+    - name: Copy basic configuration file
+      ansible.builtin.copy:
+        src: sysfs.conf
+        dest: /etc/sysfs.conf
+        owner: root
+        group: root
+        mode: "0644"
+    
+    - name: Copy startup script
+      ansible.builtin.copy:
+        src: sysfsutils
+        dest: /etc/init.d/sysfsutils
+        owner: root
+        group: root
+        mode: "0755"
+    
+    - name: Copy init functions
+      ansible.builtin.copy:
+        src: init-functions
+        dest: /etc/init.d/init-functions
+        owner: root
+        group: root
+        mode: "0644"
+    
+- name: Start daemon
+  ansible.builtin.service:
+    name: "{{ sysfs_daemon }}"
+    enabled: yes

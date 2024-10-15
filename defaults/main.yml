@@ -1,0 +1,8 @@
+---
+
+# List of packages needed
+sysfs_packages:
+  - sysfsutils
+
+# Sysfs daemon
+sysfs_daemon: sysfsutils
