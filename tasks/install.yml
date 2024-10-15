@@ -1,0 +1,6 @@
+---
+
+- name: Install sysfsutils
+  ansible.builtin.package:
+    name: "{{ sysfs_packages }}"
+    state: present

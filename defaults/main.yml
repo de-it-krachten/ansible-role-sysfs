@@ -1,0 +1,11 @@
+---
+
+# List of packages needed
+sysfs_packages:
+  - sysfsutils
+
+# Sysfs daemon
+sysfs_daemon: sysfsutils
+
+# Sysfs drop-in configurion files
+sysfs_dropin_files: []

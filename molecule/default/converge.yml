@@ -1,0 +1,11 @@
+---
+
+- name: Converge
+  hosts: all
+  become: "yes"
+  vars:
+    sysfs_dropin_files: ['scheduler']
+  tasks:
+    - name: Include role 'ansible-role-sysfs'
+      ansible.builtin.include_role:
+        name: ansible-role-sysfs
