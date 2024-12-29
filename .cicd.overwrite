@@ -85,7 +85,7 @@ platforms:
 #  fedora38:
 #    ci: false
 #    supported: false
-  fedora39:
+  fedora41:
     ci: false
     supported: false
   fedora40:
