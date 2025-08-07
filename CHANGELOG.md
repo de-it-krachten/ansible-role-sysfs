@@ -1,3 +1,14 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-sysfs/compare/v1.1.0...v1.2.0) (2025-08-07)
+
+
+### Features
+
+* Add support for AlmaLinux 10 ([2ef9e22](https://github.com/de-it-krachten/ansible-role-sysfs/commit/2ef9e223e5d5ba09a347f22745b153425da0e46e))
+* Add support for Debian 13 (Trixie) ([e903bc5](https://github.com/de-it-krachten/ansible-role-sysfs/commit/e903bc53b635616ed313b20276780827c6cbebd3))
+* Add support for OracleLinux 10 ([4fa98f6](https://github.com/de-it-krachten/ansible-role-sysfs/commit/4fa98f68462b765462074e733cebe7c87cfe5cc4))
+* Add support for Red Hat Enterprise Linux 10 ([cbc787a](https://github.com/de-it-krachten/ansible-role-sysfs/commit/cbc787ab2a1ed590c5a53a49a766dce6d2edd584))
+* Add support for RockyLinux 10 ([ff51c3e](https://github.com/de-it-krachten/ansible-role-sysfs/commit/ff51c3ea4e8a8d36f490e313facd700478255174))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-sysfs/compare/v1.0.0...v1.1.0) (2024-12-29)
 
 
