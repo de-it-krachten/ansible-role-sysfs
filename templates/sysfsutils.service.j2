@@ -1,0 +1,15 @@
+[Unit]
+Description=Apply /etc/sysfs.d configuration at boot
+DefaultDependencies=no
+Before=local-fs.target
+
+[Service]
+Type=oneshot
+{% if ansible_selinux is defined and ansible_selinux != False and ansible_selinux.status == 'enabled' %}
+ExecStart=/sbin/restorecon -R /sys
+{% endif %}
+ExecStart=/etc/init.d/sysfsutils start
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sysinit.target

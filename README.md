@@ -37,6 +37,7 @@ Supported platforms
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
+- Ubuntu 26.04 LTS
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -54,6 +55,14 @@ sysfs_daemon: sysfsutils
 
 # Sysfs drop-in configurion files
 sysfs_dropin_files: []
+</pre></code>
+
+### defaults/family-RedHat.yml
+<pre><code>
+# List of packages needed
+sysfs_packages:
+  - sysfsutils
+  - chkconfig
 </pre></code>
 
 
