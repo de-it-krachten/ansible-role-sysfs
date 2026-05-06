@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-sysfs/compare/v1.2.0...v1.3.0) (2026-05-06)
+
+
+### Features
+
+* Added support for Ubuntu 26.04 LTS ([8bf4d2b](https://github.com/de-it-krachten/ansible-role-sysfs/commit/8bf4d2b9e45ec07dd242b15da7a711ef11fb9d3e))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-sysfs/compare/v1.1.0...v1.2.0) (2025-08-07)
 
 
