@@ -1,30 +1,37 @@
 ---
 
+- name: Create configuration directory
+  ansible.builtin.file:
+    path: /etc/sysfs.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Copy basic configuration file
+  ansible.builtin.copy:
+    src: sysfs.conf
+    dest: /etc/sysfs.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart sysfs
+
 - name: Setup autostart for RedHat only
   when: ansible_os_family == 'RedHat'
   block:
 
-    - name: Create configuration directory
+    - name: Setup symlink /etc/init.d -> /etc/rc.d/init.d
       ansible.builtin.file:
-        path: /etc/sysfs.d
-        state: directory
-        owner: root
-        group: root
-        mode: "0755"
-
-    - name: Copy basic configuration file
-      ansible.builtin.copy:
-        src: sysfs.conf
-        dest: /etc/sysfs.conf
-        owner: root
-        group: root
-        mode: "0644"
-      notify: Restart sysfs
+        src: /etc/rc.d/init.d
+        dest: /etc/init.d
+        state: link
+      become: yes
 
     - name: Copy startup script
       ansible.builtin.copy:
         src: sysfsutils
-        dest: /etc/init.d/sysfsutils
+        dest: /etc/rc.d/init.d/sysfsutils
         owner: root
         group: root
         mode: "0755"
@@ -33,7 +40,7 @@
     - name: Copy init functions
       ansible.builtin.copy:
         src: init-functions
-        dest: /etc/init.d/init-functions
+        dest: /etc/rc.d/init.d/init-functions
         owner: root
         group: root
         mode: "0644"
@@ -59,7 +66,15 @@
   notify: Restart sysfs
   loop: "{{ sysfs_dropin_templates | default([]) }}"
 
+# - name: Create systemd service
+#   ansible.builtin.template:
+#     src: templates/sysfsutils.service.j2
+#     dest: /etc/systemd/system/sysfsutils.service
+#     mode: "0644"
+#   notify: Restart sysfs
+
 - name: Start daemon
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: "{{ sysfs_daemon }}"
-    enabled: yes
+    enabled: true
+    daemon_reload: true

@@ -1,0 +1,6 @@
+---
+
+# List of packages needed
+sysfs_packages:
+  - sysfsutils
+  - chkconfig
