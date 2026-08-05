@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-sysfs/compare/v1.3.0...v1.4.0) (2026-08-05)
+
+
+### Bug Fixes
+
+* Fix deprecation warnings ([8b47de1](https://github.com/de-it-krachten/ansible-role-sysfs/commit/8b47de1d7542171c2edc40c7ff0b4e920be9b4e0))
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([7e8de43](https://github.com/de-it-krachten/ansible-role-sysfs/commit/7e8de43351d2ec614c4bd0b7c7829627ea55dec1))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-sysfs/compare/v1.2.0...v1.3.0) (2026-05-06)
 
 
