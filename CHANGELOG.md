@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-sysfs/compare/v1.4.0...v1.5.0) (2026-10-30)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([2086ed7](https://github.com/de-it-krachten/ansible-role-sysfs/commit/2086ed7bb47d155f6fd0917e5580c997514ddc0c))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-sysfs/compare/v1.3.0...v1.4.0) (2026-08-05)
 
 
